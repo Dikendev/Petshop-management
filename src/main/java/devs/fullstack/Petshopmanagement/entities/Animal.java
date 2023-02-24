@@ -1,11 +1,15 @@
 package devs.fullstack.Petshopmanagement.entities;
 
-import devs.fullstack.Petshopmanagement.TreatType;
-import jakarta.persistence.*;
+import devs.fullstack.Petshopmanagement.enums.TreatType;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.io.Serializable;
+
+@Data
 @Entity
 @Table(name = "tb_animals")
-public class Animal {
+public class Animal implements Serializable {
 
     // Defining a column for all attributes
     // auto-increment for the primary key
@@ -19,81 +23,24 @@ public class Animal {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "species")
+    @Column(name = "species", nullable = false)
     private String species;
 
-    @Column(name = "breed")
+    @Column(name = "breed", nullable = false)
     private String breed;
 
-    @Column(name = "weight")
-    private double weight;
+    @Column(name = "weight", nullable = false)
+    private String weight;
 
-    @Column(name = "hair_type")
+    @Column(name = "hair_type", nullable = false)
     private String hairType;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "treat_type")
+    @Column(name = "treat_type", nullable = false)
     private TreatType treatType;
 
     public Animal() {}
-
-    // getters and setters for the attributes
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
-    public String getBreed() {
-        return breed;
-    }
-
-    public void setBreed(String breed) {
-        this.breed = breed;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public String getHairType() {
-        return hairType;
-    }
-
-    public void setHairType(String hairType) {
-        this.hairType = hairType;
-    }
-
-    public TreatType getTreatType() {
-        return treatType;
-    }
-
-    public void setTreatType(TreatType treatType) {
-        this.treatType = treatType;
-    }
 }

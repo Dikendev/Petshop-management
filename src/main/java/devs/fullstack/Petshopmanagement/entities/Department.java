@@ -1,38 +1,28 @@
 package devs.fullstack.Petshopmanagement.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import devs.fullstack.Petshopmanagement.enums.DepartmentType;
+import devs.fullstack.Petshopmanagement.enums.TreatType;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
 @Entity
 @Table(name = "tb_department")
-public class Department {
+public class Department implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
 
-    // getters and setters
+    @Enumerated(EnumType.STRING)
+    @Column(name = "department_type", nullable = false)
+    private DepartmentType departmentType;
+
     // method without arguments
     public Department() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
