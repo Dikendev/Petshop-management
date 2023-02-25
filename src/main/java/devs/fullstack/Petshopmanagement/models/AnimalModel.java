@@ -1,4 +1,4 @@
-package devs.fullstack.Petshopmanagement.entities;
+package devs.fullstack.Petshopmanagement.models;
 
 import devs.fullstack.Petshopmanagement.enums.TreatType;
 
@@ -9,19 +9,19 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "tb_animals")
-public class Animal implements Serializable {
+public class AnimalModel implements Serializable {
 
     // Defining a column for all attributes
     // auto-increment for the primary key
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+        private Long id;
 
     //foreign key h2 config
     // many animals to 1 department
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Department department;
+    private DepartmentModel departmentModel;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -42,5 +42,5 @@ public class Animal implements Serializable {
     @Column(name = "treat_type", nullable = false)
     private TreatType treatType;
 
-    public Animal() {}
+    public AnimalModel() {}
 }

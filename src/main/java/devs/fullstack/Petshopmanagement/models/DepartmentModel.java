@@ -1,18 +1,15 @@
-package devs.fullstack.Petshopmanagement.entities;
+package devs.fullstack.Petshopmanagement.models;
 
 import devs.fullstack.Petshopmanagement.enums.DepartmentType;
-import devs.fullstack.Petshopmanagement.enums.TreatType;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
 @Table(name = "tb_department")
-public class Department implements Serializable {
+public class DepartmentModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +20,6 @@ public class Department implements Serializable {
     private DepartmentType departmentType;
 
     // method without arguments
-    public Department() {
+    public DepartmentModel() {
     }
 }
