@@ -1,9 +1,7 @@
 package devs.fullstack.Petshopmanagement.models;
-
 import devs.fullstack.Petshopmanagement.enums.DepartmentType;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.io.Serializable;
 
 @Data

@@ -1,7 +1,5 @@
 package devs.fullstack.Petshopmanagement.models;
-
 import devs.fullstack.Petshopmanagement.enums.TreatType;
-
 import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
@@ -20,7 +18,7 @@ public class AnimalModel implements Serializable {
     //foreign key h2 config
     // many animals to 1 department
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department_id", nullable = false)
     private DepartmentModel departmentModel;
 
     @Column(name = "name", nullable = false)
