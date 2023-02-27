@@ -15,7 +15,7 @@
 
 * UI prototype - [**bootstrap 5**](https://v5.getbootstrap.com/docs/5.0/getting-started/download/) 
 
-* Backend - CRUD REST API [**PostgreSQL**](https://www.postgresql.org/download/)
+* Backend - CRUD REST API [**Springboot**](https://start.spring.io/)
 
 * Test the repo with [**Quick start**](#quick-start)
 
