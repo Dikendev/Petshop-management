@@ -1,6 +1,6 @@
 package devs.fullstack.Petshopmanagement.services;
 import devs.fullstack.Petshopmanagement.repositories.AnimalRepository;
-import devs.fullstack.Petshopmanagement.models.AnimalModel;
+import devs.fullstack.Petshopmanagement.models.Animal;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,20 +13,20 @@ public class AnimalService {
     private AnimalRepository animalRepository;
 
     @Transactional
-    public AnimalModel addAnimal(AnimalModel animalModel) {
-        return animalRepository.save(animalModel);
+    public Animal addAnimal(Animal animal) {
+        return animalRepository.save(animal);
     }
 
     @Transactional
-    public void deleteAnimal(AnimalModel animalModel) {
-        animalRepository.delete(animalModel);
+    public void deleteAnimal(Animal animal) {
+        animalRepository.delete(animal);
     }
 
-    public List<AnimalModel> findAll() {
+    public List<Animal> findAll() {
         return animalRepository.findAll();
     }
 
-    public Optional<AnimalModel> findById(Long id){
+    public Optional<Animal> findById(Long id){
         return animalRepository.findById(id);
     }
 }

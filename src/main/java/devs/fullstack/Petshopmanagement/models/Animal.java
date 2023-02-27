@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "tb_animals")
-public class AnimalModel implements Serializable {
+public class Animal implements Serializable {
 
     // Defining a column for all attributes
     // auto-increment for the primary key
@@ -40,5 +40,5 @@ public class AnimalModel implements Serializable {
     @Column(name = "treat_type", nullable = false)
     private TreatType treatType;
 
-    public AnimalModel() {}
+    public Animal() {}
 }

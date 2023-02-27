@@ -1,6 +1,6 @@
 package devs.fullstack.Petshopmanagement.controllers;
 
-import devs.fullstack.Petshopmanagement.models.AnimalModel;
+import devs.fullstack.Petshopmanagement.models.Animal;
 import devs.fullstack.Petshopmanagement.services.AnimalService;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
@@ -21,20 +21,22 @@ public class AnimalController {
     @Autowired
     private AnimalService animalService;
 
+    //retrieves all animal entities from the animal service, and returns
+    //them as a list of Animal objects.
     @GetMapping
-    public ResponseEntity<List<AnimalModel>> getAllAnimals() {
-        List<AnimalModel> animalModels = animalService.findAll();
-        return new ResponseEntity<>(animalModels, HttpStatus.OK);
+    public ResponseEntity<List<Animal>> getAllAnimals() {
+        List<Animal> animal = animalService.findAll();
+        return new ResponseEntity<>(animal, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<AnimalModel> addAnimal(@RequestBody AnimalModel animalModel) {
-       return ResponseEntity.status(HttpStatus.CREATED).body(animalService.addAnimal(animalModel));
+    public ResponseEntity<Animal> addAnimal(@RequestBody Animal animal) {
+       return ResponseEntity.status(HttpStatus.CREATED).body(animalService.addAnimal(animal));
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteAnimal(@PathVariable Long id) {
-        Optional<AnimalModel> optionalAnimalModel = animalService.findById(id);
+        Optional<Animal> optionalAnimalModel = animalService.findById(id);
         if(optionalAnimalModel.isPresent()) {
             animalService.deleteAnimal(optionalAnimalModel.get());
             return ResponseEntity.ok().body("Deleted with success");
@@ -44,11 +46,11 @@ public class AnimalController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateAnimal(@PathVariable Long id, @RequestBody AnimalModel animalModel) {
-        Optional<AnimalModel> optionalAnimalModel = animalService.findById(id);
+    public ResponseEntity<Object> updateAnimal(@PathVariable Long id, @RequestBody Animal animal) {
+        Optional<Animal> optionalAnimalModel = animalService.findById(id);
         if (optionalAnimalModel.isPresent()) {
-            AnimalModel newAnimal = optionalAnimalModel.get();
-            BeanUtils.copyProperties(animalModel, newAnimal);
+            Animal newAnimal = optionalAnimalModel.get();
+            BeanUtils.copyProperties(animal, newAnimal);
             return ResponseEntity.ok().body(animalService.addAnimal(newAnimal));
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No id animals found " + id);
@@ -57,7 +59,7 @@ public class AnimalController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> findById(@PathVariable Long id) {
-        Optional<AnimalModel> optionalAnimalModel = animalService.findById(id);
+        Optional<Animal> optionalAnimalModel = animalService.findById(id);
         if (optionalAnimalModel.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no animals with id" + id);
         } else {
