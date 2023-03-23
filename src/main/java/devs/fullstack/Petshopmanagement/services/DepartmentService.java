@@ -1,5 +1,5 @@
 package devs.fullstack.Petshopmanagement.services;
-import devs.fullstack.Petshopmanagement.models.DepartmentModel;
+import devs.fullstack.Petshopmanagement.models.Department;
 import devs.fullstack.Petshopmanagement.repositories.DepartmentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +14,20 @@ public class DepartmentService {
     private DepartmentRepository departmentRepository;
 
     @Transactional
-    public DepartmentModel addDepartment(DepartmentModel departmentModel) {
-        return departmentRepository.save(departmentModel);
+    public Department addDepartment(Department department) {
+        return departmentRepository.save(department);
     }
 
     @Transactional
-    public  void deleteDepartment(DepartmentModel departmentModel) {
-        departmentRepository.delete(departmentModel);
+    public  void deleteDepartment(Department department) {
+        departmentRepository.delete(department);
     }
 
-    public List<DepartmentModel> findAll() {
+    public List<Department> findAll() {
         return departmentRepository.findAll();
     }
 
-    public Optional<DepartmentModel> findById(Long id) {
+    public Optional<Department> findById(Long id) {
         return departmentRepository.findById(id);
     }
 }
