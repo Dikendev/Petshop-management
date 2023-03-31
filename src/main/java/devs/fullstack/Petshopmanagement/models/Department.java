@@ -1,13 +1,17 @@
 package devs.fullstack.Petshopmanagement.models;
 import devs.fullstack.Petshopmanagement.enums.DepartmentType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_department")
 public class Department implements Serializable {
     @Serial
@@ -21,38 +25,4 @@ public class Department implements Serializable {
     @Column(name = "department_type", nullable = false)
     private DepartmentType departmentType;
 
-    // method without arguments
-    public Department() {
-    }
-
-    public Department(Long id, DepartmentType departmentType) {
-        super();
-        this.id = id;
-        this.departmentType = departmentType;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj)
-            return true;
-        if(obj == null)
-            return false;
-        if(getClass() != obj.getClass())
-            return false;
-        Department other = (Department) obj;
-        if(id == null) {
-            if(other.id != null)
-                return false;
-        } else if(!id.equals(other.id))
-            return false;
-        return true;
-    }
 }
