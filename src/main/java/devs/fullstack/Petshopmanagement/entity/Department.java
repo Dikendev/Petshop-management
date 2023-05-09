@@ -1,25 +1,20 @@
-package devs.fullstack.Petshopmanagement.models;
+package devs.fullstack.Petshopmanagement.entity;
+import devs.fullstack.Petshopmanagement.entity.model.BaseEntity;
 import devs.fullstack.Petshopmanagement.enums.DepartmentType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_department")
-public class Department implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EqualsAndHashCode(callSuper = false)
+public class Department extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "department_type", nullable = false)

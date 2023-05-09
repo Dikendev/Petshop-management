@@ -1,27 +1,20 @@
-package devs.fullstack.Petshopmanagement.models;
+package devs.fullstack.Petshopmanagement.entity;
+import devs.fullstack.Petshopmanagement.entity.model.BaseEntity;
 import devs.fullstack.Petshopmanagement.enums.TreatType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_animal")
-public class Animal implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    // Defining a column for all attributes
-    // auto-increment for the primary key
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EqualsAndHashCode(callSuper = false)
+public class Animal extends BaseEntity {
 
     //foreign key h2 config
     // many animals to 1 department
