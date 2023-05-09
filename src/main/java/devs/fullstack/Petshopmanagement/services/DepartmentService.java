@@ -1,9 +1,8 @@
 package devs.fullstack.Petshopmanagement.services;
-import devs.fullstack.Petshopmanagement.models.Department;
+import devs.fullstack.Petshopmanagement.entity.Department;
 import devs.fullstack.Petshopmanagement.repositories.DepartmentRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
