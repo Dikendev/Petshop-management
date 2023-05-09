@@ -1,6 +1,6 @@
 package devs.fullstack.Petshopmanagement.controllers;
 
-import devs.fullstack.Petshopmanagement.models.Animal;
+import devs.fullstack.Petshopmanagement.entity.Animal;
 import devs.fullstack.Petshopmanagement.services.AnimalService;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
