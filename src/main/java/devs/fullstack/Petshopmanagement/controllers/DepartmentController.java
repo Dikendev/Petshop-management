@@ -1,6 +1,6 @@
 package devs.fullstack.Petshopmanagement.controllers;
 
-import devs.fullstack.Petshopmanagement.models.Department;
+import devs.fullstack.Petshopmanagement.entity.Department;
 import devs.fullstack.Petshopmanagement.services.DepartmentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
